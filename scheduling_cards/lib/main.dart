@@ -28,8 +28,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> entries = <String>['A', 'B', 'C'];
-    final List<int> colorCodes = <int>[600, 500, 100];
+    // find a way to pull the event information from the database
+    // add them to the lists below: event name, event category, event time, event description
+    final List<String> eventName = <String>['TartanHacks Begins!', 'Flutter Workshop', 'TartanHacks Ends!'];
+    final List<int> category = <int>[500, 200, 500];
+    
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,12 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.builder(
           padding: const EdgeInsets.all(8),
-          itemCount: entries.length,
+          itemCount: eventName.length,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              height: 500,
-              color: Colors.amber[colorCodes[index]],
-              child: Center(child: Text('Entry ${entries[index]}')),
+              height: 250,
+              color: Colors.amber[category[index]],
+              child: Center(child: Text('${eventName[index]}')),
             );
           }
       )
