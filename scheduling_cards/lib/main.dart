@@ -65,16 +65,24 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.black,
                         fontSize: 20,
                     ),
-                    children: <TextSpan> [
-                        TextSpan(
-                            text: '\n${data['description']}',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                        ))
-                    ]
+
                 )
+            )
+        );
+    }
+
+    Widget eventDescription(data) {
+        return Align(
+            alignment: Alignment.centerLeft,
+            child: RichText(
+                  text: TextSpan(
+                      text: '\n${data['description']}',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold
+                      ),
+                  )
             )
         );
     }
@@ -146,17 +154,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                                         children: <Widget> [
                                                                                             eventIcon(eventData[index]),
                                                                                             SizedBox(
-                                                                                                height: 10,
+                                                                                                width: 10,
                                                                                             ),
                                                                                             eventName(eventData[index]),
                                                                                             SizedBox(
-                                                                                                width: 15,
+                                                                                                width: 20,
                                                                                             ),
                                                                                             eventTime(eventData[index]),
                                                                                             SizedBox(
                                                                                                 height: 10,
                                                                                             ),
                                                                                         ]
+                                                                                    ),
+                                                                                    Row(
+                                                                                      children: <Widget> [
+                                                                                        eventDescription(eventData[index]),
+                                                                                      ]
                                                                                     )
                                                                                 ]
                                                                             )
